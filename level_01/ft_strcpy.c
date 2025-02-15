@@ -1,14 +1,15 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_strcpy.c                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: vabatist <vabatist@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/12 17:57:26 by vabatist          #+#    #+#             */
-/*   Updated: 2025/02/12 18:15:45 by vabatist         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+/* 
+Assignment name  : ft_strcpy
+Expected files   : ft_strcpy.c
+Allowed functions: 
+--------------------------------------------------------------------------------
+
+Reproduce the behavior of the function strcpy (man strcpy).
+
+Your function must be declared as follows:
+
+char    *ft_strcpy(char *s1, char *s2);
+*/
 
 #include <stdio.h>
 
@@ -25,10 +26,11 @@ char    *ft_strcpy(char *s1, char *s2)
         s1[i] = '\0';
         return (s1);
 }
-
+/* 
 int main(void)
 {
-    char str1[] = "ola";
-    char str2[] = "mundo";
-    printf("%s\n", ft_strcpy(str1, str2));
+    char dest[] = "ola";
+    char src[] = "mundooooooo";
+    printf("%s\n", ft_strcpy(dest, src));
 }
+*/
