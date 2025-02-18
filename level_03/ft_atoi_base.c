@@ -47,15 +47,15 @@ int	ft_atoi_base(const char *str, int str_base)
 		else if (str[i] >= 'a' && str[i] <= 'z')
 			result += str[i] - 87;
 		i++;
+		//// Este atoi_base nao lida com espacos, pontos, virgulas...
+		//// Tem de ser revisto
 	}
 	return (result * sign);
 }
 
-// int main ()
-// {
-//     int num = ft_atoi_base("1011101", 2);
-
-//     printf("%d\n", num);
-
-//     return (0);
-// }
+int	main(void)
+{
+	int num = ft_atoi_base("1011101", 2);
+	printf("%d\n", num);
+	return (0);
+}
