@@ -42,7 +42,7 @@ $
 
 #include <unistd.h>
 
-void	ft_putchar(char c)
+/* void	ft_putchar(char c)
 {
 	write(1, &c, 1);
 }
@@ -56,6 +56,13 @@ void	ft_write_number(int number)
 	}
 	if (number < 10)
 		ft_putchar(number + '0');
+} */
+
+void	ft_write_number(int number)
+{
+	if (number > 9)
+		ft_write_number(number / 10);
+	write(1, &"0123456789"[number % 10], 1);
 }
 
 int	main(void)
