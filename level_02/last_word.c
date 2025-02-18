@@ -29,22 +29,22 @@ $>
 
 #include <unistd.h>
 
-int	main(int ac, char **a)
+int	main(int argc, char **argv)
 {
-	if (ac == 2)
+	if (argc == 2)
 	{
 		int i;
 		i = 0;
 
-		while (a[1][i])
+		while (argv[1][i])
 			i++;
 		i--;
-		while (a[1][i] > 32)
+		while (argv[1][i] > 32)
 			i--;
 		i++;
-		while (a[1][i])
+		while (argv[1][i])
 		{
-			write(1, &a[1][i], 1);
+			write(1, &argv[1][i], 1);
 			i++;
 		}
 	}
