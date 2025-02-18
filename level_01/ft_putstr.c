@@ -1,4 +1,4 @@
-/* 
+/*
 Assignment name  : ft_putstr
 Expected files   : ft_putstr.c
 Allowed functions: write
@@ -18,17 +18,18 @@ void	ft_putstr(char *str);
 
 void	ft_putstr(char *str)
 {
-    int i;
-    i = 0;
-    while (str[i])
-    {
-        write(1, &str[i++], 1);
-    } 
+	int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		write(1, &str[i++], 1);
+	}
 }
 
 /*int main(void)
 {
-    ft_putstr("ola");
-    write(1, "\n", 1);
-    return (0);
+	ft_putstr("ola");
+	write(1, "\n", 1);
+	return (0);
 }*/

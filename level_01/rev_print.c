@@ -1,4 +1,4 @@
-/* 
+/*
 Assignment name  : rev_print
 Expected files   : rev_print.c
 Allowed functions: write
@@ -21,12 +21,12 @@ $
 
 #include <unistd.h>
 
-int		main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	if (argc == 2)
 	{
-        int	i;
-    	i = 0;
+		int i;
+		i = 0;
 		while (argv[1][i])
 			i++;
 		while (i--)

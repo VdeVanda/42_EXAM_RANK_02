@@ -38,7 +38,7 @@ int main(int argc, char **argv)
 	int count;
 
 	i = 0;
-	count = 0;
+	count = 1;
 	if (argc == 2)
 	{
 		while (argv[1][i])

@@ -1,4 +1,4 @@
-/* 
+/*
 Assignment name  : rot_13
 Expected files   : rot_13.c
 Allowed functions: write
@@ -31,14 +31,14 @@ $>
 
 #include <unistd.h>
 
-int		main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	int i;
 	i = 0;
-	
+
 	if (argc == 2)
 	{
-		while (argv[1][i] != '\0')
+		while (argv[1][i])
 		{
 			if (argv[1][i] >= 'A' && argv[1][i] <= 'M')
 				argv[1][i] += 13;

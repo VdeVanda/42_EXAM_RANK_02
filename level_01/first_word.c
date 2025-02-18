@@ -17,7 +17,8 @@ Examples:
 
 $> ./first_word "FOR PONY" | cat -e
 FOR$
-$> ./first_word "this        ...    is sparta, then again, maybe    not" | cat -e
+$> ./first_word "this        ...    is sparta, then again, maybe    not" | cat
+	-e
 this$
 $> ./first_word "   " | cat -e
 $
@@ -28,22 +29,21 @@ lorem,ipsum$
 $>
 */
 
-
 #include <unistd.h>
 
-int main (int argc, char **argv)
+int	main(int argc, char **argv)
 {
-    int i;
-    i = 0;
-    if (argc == 2)
-    {
-        while (argv[1][i] == ' ' || argv[1][i] == '\t')
-            i++;
-        while (argv[1][i] && argv[1][i] != ' ' && argv[1][i] != '\t')
-        {
-            write(1, &argv[1][i++], 1);
-        }
-    }
-    write(1, "\n", 1);
-    return (0);
+	int i;
+	i = 0;
+	if (argc == 2)
+	{
+		while (argv[1][i] == ' ' || argv[1][i] == '\t')
+			i++;
+		while (argv[1][i] && argv[1][i] != ' ' && argv[1][i] != '\t')
+		{
+			write(1, &argv[1][i++], 1);
+		}
+	}
+	write(1, "\n", 1);
+	return (0);
 }
