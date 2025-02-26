@@ -60,5 +60,4 @@ int	main(void)
 	free(dup1);
 	free(dup2);
 	return (0);
-}
-*/
+} */
