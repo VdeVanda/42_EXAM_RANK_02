@@ -61,10 +61,11 @@ int	ft_atoi_base(const char *str, int str_base)
 	}
 	return (result * sign);
 }
-
+/*
 int	main(void)
 {
 	int num = ft_atoi_base("Ceci permet de decouvrir le fonctionnement de ton ft_atoi_base.", 16);
 	printf("%d\n", num);
 	return (0);
 }
+*/
