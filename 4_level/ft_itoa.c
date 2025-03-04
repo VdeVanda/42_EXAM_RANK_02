@@ -14,57 +14,52 @@ char	*ft_itoa(int nbr);
 
 #include <stdlib.h>
 
-int		absolute_value(int nbr)
+char *ft_itoa(int nbr)
 {
-	if (nbr < 0)
-		return (-nbr);
-	return (nbr);
+    char *result;
+    int len = 0;
+    unsigned int num;
+    int temp_nbr = nbr;
+
+    if (nbr <= 0)
+        len++;
+    while (temp_nbr != 0)
+    {
+        len++;
+        temp_nbr /= 10;
+    }
+
+    result = malloc(sizeof(char) * (len + 1));
+    if (!result)
+        return (NULL);
+    result[len] = '\0';
+
+    if (nbr < 0)
+    {
+        result[0] = '-';
+        num = -nbr;
+    }
+    else
+        num = nbr;
+
+    if (nbr == 0)
+        result[0] = '0';
+
+    while (num != 0)
+    {
+        result[--len] = (num % 10) + '0';
+        num = num / 10;
+    }
+    return (result);
 }
 
-int		get_len(int nbr)
-{
-	int len = 0;
-	if (nbr <= 0)
-		++len;
-	while (nbr != 0)
-	{
-		++len;
-		nbr = nbr / 10;
-	}
-	return (len);
-}
-
-char	*ft_itoa(int nbr)
-{
-	char *result;
-	int len;
-
-	len = get_len(nbr);
-	result = malloc(sizeof(char) * (len + 1));
-	result[len] = '\0';
-
-	if (nbr < 0)
-		result[0] = '-';
-	else if (nbr == 0)
-		result[0] = '0';
-
-	while (nbr != 0)
-	{
-		--len;
-		result[len] = absolute_value(nbr % 10) + '0';
-		nbr = nbr / 10;
-	}
-	return (result);
-}
-/*
 #include <stdio.h>
 
 int main(void)
 {
-    int n = -10000;
+    int n = -123;
     char *str = ft_itoa(n);
-    printf("str: %s\n", str);
+    printf("%s\n", str);
     free(str);
     return (0);
 }
-*/
