@@ -37,26 +37,26 @@ $
 #include <stdio.h>
 #include <stdlib.h>
 
-void	fprime(int nb)
+void	fprime(int positive)
 {
-	int i;
+	int prime;
 
-	i = 2;
-	if (nb == 1)
+	prime = 2;
+	if (positive == 1)
 	{
 		printf("1");
 		return ;
 	}
-	while (nb >= i)
+	while (positive >= prime)
 	{
-		while (nb % i == 0)
+		while (positive % prime == 0)
 		{
-			printf("%d", i);
-            if (nb != i)
+			printf("%d", prime);
+            if (positive != prime)
 				printf("*");
-            nb /= i;
+            positive /= prime;
 		}
-		i++;
+		prime++;
 	}
 }
 
