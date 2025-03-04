@@ -61,89 +61,61 @@ typedef struct	s_point
 	int			y;
 }				t_point;
 
-void	fill(char **tab, t_point size, t_point cur, char to_fill)
+void  flood_fill(char **tab, t_point size, t_point begin)
 {
-	if (cur.y < 0 || cur.y >= size.y || cur.x < 0 || cur.x >= size.x
-		|| tab[cur.y][cur.x] != to_fill)
-		return;
-
-	tab[cur.y][cur.x] = 'F';
-	fill(tab, size, (t_point){cur.x - 1, cur.y}, to_fill);
-	fill(tab, size, (t_point){cur.x + 1, cur.y}, to_fill);
-	fill(tab, size, (t_point){cur.x, cur.y - 1}, to_fill);
-	fill(tab, size, (t_point){cur.x, cur.y + 1}, to_fill);
+    if (begin.x < 0 || begin.x >= size.x || begin.y < 0 || begin.y >= size.y)
+        return ;
+    if (tab[begin.y][begin.x] != '0')
+        return ;
+    tab[begin.y][begin.x] = 'F';
+    flood_fill(tab, size, (t_point){begin.x + 1, begin.y}); // Right
+    flood_fill(tab, size, (t_point){begin.x - 1, begin.y}); // Left
+    flood_fill(tab, size, (t_point){begin.x, begin.y + 1}); // Down
+    flood_fill(tab, size, (t_point){begin.x, begin.y - 1}); // Up
 }
 
-void	flood_fill(char **tab, t_point size, t_point begin)
-{
-	fill(tab, size, begin, tab[begin.y][begin.x]);
-}
-
-/*
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
 
-char **make_area(char **zone)
+void flood_fill(char **tab, t_point size, t_point begin);
+
+void print_tab(char **tab, t_point size)
 {
-    int i, j;
-    char **area;
-
-    for (i = 0; zone[i]; i++)
-        ;
-    area = malloc(sizeof(char *) * (i + 1));
-    for (i = 0; zone[i]; i++)
-    {
-        area[i] = malloc(strlen(zone[i]) + 1);
-        for (j = 0; zone[i][j]; j++)
-            area[i][j] = zone[i][j];
-        area[i][j] = '\0';
-    }
-    area[i] = NULL;
-    return area;
-}
-
-void print_tab(char **tab)
-{
-    int i, j;
-
-    for (i = 0; tab[i]; i++)
-    {
-        for (j = 0; tab[i][j]; j++)
-        {
-            if (tab[i][j] == ' ')
-                continue;
-            printf("%c ", tab[i][j]);
-        }
-        printf("\n");
-    }
+    for (int i = 0; i < size.y; i++)
+        printf("%s\n", tab[i]);
+    printf("\n");
 }
 
 int main(void)
 {
-    char **area;
     t_point size = {8, 5};
-    t_point begin = {2, 2};
-    char *zone[] = {
-        "1 1 1 1 1 1 1 1",
-        "1 0 0 0 1 0 0 1",
-        "1 0 0 1 0 0 0 1",
-        "1 0 1 1 0 0 0 1",
-        "1 1 1 0 0 0 0 1",
-        NULL
+    char *area[] = {
+        "11111111",
+        "10010001",
+        "10010001",
+        "10110001",
+        "11111111"
     };
-
-    area = make_area(zone);
-    printf("Original area:\n");
-    print_tab(area);
-    flood_fill(area, size, begin);
-    printf("\nFilled area:\n");
-    print_tab(area);
-
-    for (int i = 0; area[i]; i++)
-        free(area[i]);
-    free(area);
-
-    return 0;
+    
+    char **tab = malloc(size.y * sizeof(char *));
+    for (int i = 0; i < size.y; i++)
+        tab[i] = strdup(area[i]);
+    
+    t_point begin = {6, 1};  // Starting point for flood fill
+    
+    printf("Before flood fill:\n");
+    print_tab(tab, size);
+    
+    flood_fill(tab, size, begin);
+    
+    printf("After flood fill:\n");
+    print_tab(tab, size);
+    
+    // Free allocated memory
+    for (int i = 0; i < size.y; i++)
+        free(tab[i]);
+    free(tab);
+    
+    return (0);
 }
-*/
