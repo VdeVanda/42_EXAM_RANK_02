@@ -25,30 +25,30 @@ char	**ft_split(char *str)
 {
 	char	**arr;
     int     i;
-	int		j;
-	int		k;
+	int		word;
+	int		letter;
 
 	arr = malloc(sizeof(char *) * WD_NUM);
     i = 0;
-    j = 0;
+    word = 0;
 	while (str[i])
 	{
 		if (str[i] > 32)
 		{
-			k = 0;
-            arr[j] = malloc(sizeof(char) * WD_LEN);
+			letter = 0;
+            arr[word] = malloc(sizeof(char) * WD_LEN);
 			while (str[i] > 32)
-                arr[j][k++] = str[i++];
-			arr[j][k] = '\0';
-			j++;
+                arr[word][letter++] = str[i++];
+			arr[word][letter] = '\0';
+			word++;
 		}
 		else
 			i++;
 	}
-	arr[j] = '\0';
+	arr[word] = '\0';
 	return (arr);
 }
-/*
+
 int	main(void)
 {
 	char *str = "   lorem   ipsum dolor  consectetur.   Suspendisse  ";
@@ -59,4 +59,3 @@ int	main(void)
 		printf("%s\n", *split_str++);
 	return (0);
 }
-*/
