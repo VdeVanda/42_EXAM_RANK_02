@@ -16,9 +16,9 @@ char	*ft_itoa(int nbr);
 
 char *ft_itoa(int nbr)
 {
-    char *result;
+    char *string;
     int len = 0;
-    unsigned int num;
+    unsigned int positive;
     int temp_nbr = nbr;
 
     if (nbr <= 0)
@@ -29,28 +29,28 @@ char *ft_itoa(int nbr)
         temp_nbr /= 10;
     }
 
-    result = malloc(sizeof(char) * (len + 1));
-    if (!result)
+    string = malloc(sizeof(char) * (len + 1));
+    if (!string)
         return (NULL);
-    result[len] = '\0';
+    string[len] = '\0';
 
     if (nbr < 0)
     {
-        result[0] = '-';
-        num = -nbr;
+        string[0] = '-';
+        positive = -nbr;
     }
     else
-        num = nbr;
+        positive = nbr;
 
     if (nbr == 0)
-        result[0] = '0';
+        string[0] = '0';
 
-    while (num != 0)
+    while (positive != 0)
     {
-        result[--len] = (num % 10) + '0';
-        num = num / 10;
+        string[--len] = (positive % 10) + '0';
+        positive = positive / 10;
     }
-    return (result);
+    return (string);
 }
 
 #include <stdio.h>
