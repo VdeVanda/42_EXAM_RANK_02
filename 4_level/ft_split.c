@@ -28,7 +28,7 @@ char	**ft_split(char *str)
 	int		j;
 	int		k;
 
-	arr = (char **)malloc(sizeof(char *) * WD_NUM);
+	arr = malloc(sizeof(char *) * WD_NUM);
     i = 0;
     j = 0;
 	while (str[i])
@@ -36,7 +36,7 @@ char	**ft_split(char *str)
 		if (str[i] > 32)
 		{
 			k = 0;
-            arr[j] = (char *)malloc(sizeof(char) * WD_LEN);
+            arr[j] = malloc(sizeof(char) * WD_LEN);
 			while (str[i] > 32)
                 arr[j][k++] = str[i++];
 			arr[j][k] = '\0';
