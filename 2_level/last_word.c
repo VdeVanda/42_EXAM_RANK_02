@@ -34,18 +34,31 @@ int	main(int argc, char **argv)
 	if (argc == 2)
 	{
 		int i;
+		int start;
+		int end;
+		
 		i = 0;
+		start = 0;
+		end = 0;
 
 		while (argv[1][i])
 			i++;
 		i--;
-		while (argv[1][i] > 32)
+
+		while (argv[1][i] && argv[1][i] < 33)
 			i--;
-		i++;
-		while (argv[1][i])
+
+		end = i;
+
+		while (argv[1][i] && argv[1][i] > 32)
+			i--;
+
+		start = i + 1;
+
+		while (start <= end)
 		{
-			write(1, &argv[1][i], 1);
-			i++;
+			write(1, &argv[1][start], 1);
+			start++;
 		}
 	}
 	write(1, "\n", 1);
