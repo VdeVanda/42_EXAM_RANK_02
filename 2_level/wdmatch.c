@@ -35,13 +35,15 @@ int	main(int argc, char **argv)
 	if (argc == 3)
 	{
 		int i;
+        int j;
 
 		i = 0;
-		while (argv[1][i] && *argv[2])
+        j = 0;
+        while (argv[1][i] && argv[2][j])
 		{
-			if (argv[1][i] == *argv[2])
+            if (argv[1][i] == argv[2][j])
 				i++;
-			argv[2]++;
+            j++;
 		}
 		if (argv[1][i] == '\0')
 			write(1, argv[1], i);
