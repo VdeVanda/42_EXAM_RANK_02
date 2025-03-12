@@ -46,18 +46,16 @@ int	ft_atoi_base(const char *str, int str_base)
 	result = 0;
 	while (str[i] == ' ' || str[i] == '\t')
 		i++;
-	if (str[i] == '-')
-	{
-		sign = -1;
-		i++;
-	}
+	while (str[i] == '-' || str[i] == '+')
+		if (str[i] == '-')
+		{
+			sign = -1;
+			i++;
+		}
 	while (str[i] > 32 && str[i])
 	{
 		if (get_digit(str[i]))
-		{
-			result *= str_base;
-			result += get_digit(str[i]);
-		}
+			result = result * str_base + get_digit(str[i]);
 		i++;
 	}
 	return (result * sign);
