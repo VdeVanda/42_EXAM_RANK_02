@@ -1,4 +1,4 @@
-/* 
+/*
 Assignment name  : do_op
 Expected files   : *.c, *.h
 Allowed functions: atoi, printf, write
@@ -29,11 +29,11 @@ $> ./do_op | cat -e
 $
 */
 
-#include <unistd.h>
-#include <stdlib.h>
 #include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
 
-int		main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	int a;
 	int b;

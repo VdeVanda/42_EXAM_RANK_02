@@ -36,7 +36,7 @@ int	main(int argc, char **argv)
 		int i;
 		int start;
 		int end;
-		
+
 		i = 0;
 		start = 0;
 		end = 0;

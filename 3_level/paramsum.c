@@ -25,11 +25,11 @@ $>
 void	ft_putnbr(int nb)
 {
 	if (nb >= 10)
-	  ft_putnbr(nb / 10);
+		ft_putnbr(nb / 10);
 	write(1, &"0123456789"[nb % 10], 1);
 }
 
-int		main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	(void)argv;
 	ft_putnbr(argc - 1);

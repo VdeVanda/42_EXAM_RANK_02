@@ -4,7 +4,7 @@ Expected files   : rstr_capitalizer.c
 Allowed functions: write
 --------------------------------------------------------------------------------
 
-Write a program that takes one or more strings and, for each argument, puts 
+Write a program that takes one or more strings and, for each argument, puts
 the last character of each word (if it's a letter) in uppercase and the rest
 in lowercase, then displays the result followed by a \n.
 
@@ -19,7 +19,8 @@ $> ./rstr_capitalizer | cat -e
 $
 $> ./rstr_capitalizer "Premier PETIT TesT" | cat -e
 premieR petiT tesT$
-$> ./rstr_capitalizer "DeuxiEmE tEST uN PEU moinS  facile" "   attention C'EST pas dur QUAND mEmE" "ALLer UN DeRNier 0123456789pour LA rouTE    E " | cat -e
+$> ./rstr_capitalizer "DeuxiEmE tEST uN PEU moinS  facile" "   attention C'EST pas dur QUAND mEmE" "ALLer UN DeRNier 0123456789pour LA rouTE    E " | cat
+	-e
 deuxiemE tesT uN peU moinS  facilE$
    attentioN c'esT paS duR quanD memE$
 alleR uN dernieR 0123456789pouR lA routE    E $
@@ -36,8 +37,7 @@ void	rstr_capitalizer(char *s)
 	{
 		if (s[i] >= 'A' && s[i] <= 'Z')
 			s[i] += 32;
-		if ((s[i] >= 'a' && s[i] <= 'z')
-			&& (s[i + 1] < 33 || s[i + 1] == '\0'))
+		if ((s[i] >= 'a' && s[i] <= 'z') && (s[i + 1] < 33 || s[i + 1] == '\0'))
 			s[i] -= 32;
 		write(1, &s[i], 1);
 		i++;
@@ -46,7 +46,7 @@ void	rstr_capitalizer(char *s)
 
 int	main(int argc, char *argv[])
 {
-	int	i;
+	int i;
 
 	i = 1;
 	if (argc > 1)

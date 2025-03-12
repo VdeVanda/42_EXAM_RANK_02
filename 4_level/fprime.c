@@ -39,7 +39,7 @@ $
 
 void	fprime(int positive)
 {
-	int prime;
+	int	prime;
 
 	prime = 2;
 	if (positive == 1)
@@ -52,15 +52,15 @@ void	fprime(int positive)
 		while (positive % prime == 0)
 		{
 			printf("%d", prime);
-            if (positive != prime)
+			if (positive != prime)
 				printf("*");
-            positive /= prime;
+			positive /= prime;
 		}
 		prime++;
 	}
 }
 
-int		main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	if (argc == 2)
 		fprime(atoi(argv[1]));

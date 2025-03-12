@@ -14,52 +14,54 @@ char	*ft_itoa(int nbr);
 
 #include <stdlib.h>
 
-char *ft_itoa(int nbr)
+char	*ft_itoa(int nbr)
 {
-    char *string;
-    int len = 0;
-    unsigned int positive;
-    int temp_nbr = nbr;
+	char			*string;
+	int				len;
+	unsigned int	positive;
+	int				temp_nbr;
 
-    if (nbr <= 0)
-        len++;
-    while (temp_nbr != 0)
-    {
-        len++;
-        temp_nbr /= 10;
-    }
-
-    string = malloc(sizeof(char) * (len + 1));
-    if (!string)
-        return (NULL);
-    string[len] = '\0';
-
-    if (nbr < 0)
-    {
-        string[0] = '-';
-        positive = -nbr;
-    }
-    else
-        positive = nbr;
-
-    if (nbr == 0)
-        string[0] = '0';
-
-    while (positive != 0)
-    {
-        string[--len] = (positive % 10) + '0';
-        positive = positive / 10;
-    }
-    return (string);
+	len = 0;
+	temp_nbr = nbr;
+	if (nbr <= 0)
+		len++;
+	while (temp_nbr != 0)
+	{
+		len++;
+		temp_nbr /= 10;
+	}
+	string = malloc(sizeof(char) * (len + 1));
+	if (!string)
+		return (NULL);
+	string[len] = '\0';
+	if (nbr < 0)
+	{
+		string[0] = '-';
+		positive = -nbr;
+	}
+	else
+		positive = nbr;
+	if (nbr == 0)
+		string[0] = '0';
+	while (positive != 0)
+	{
+		string[--len] = (positive % 10) + '0';
+		positive = positive / 10;
+	}
+	return (string);
 }
-
+/* 
 #include <stdio.h>
 
-int main(void)
+int	main(void)
 {
-    int n = -123;
-    char *str = ft_itoa(n);
-    printf("%s\n", str);
-    free(str);
-    return (0);
+	int		n;
+	char	*str;
+
+	n = -123;
+	str = ft_itoa(n);
+	printf("%s\n", str);
+	free(str);
+	return (0);
 }
+ */

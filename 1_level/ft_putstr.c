@@ -27,9 +27,11 @@ void	ft_putstr(char *str)
 	}
 }
 
-/*int main(void)
+/*
+int	main(void)
 {
 	ft_putstr("ola");
 	write(1, "\n", 1);
 	return (0);
-}*/
+}
+*/

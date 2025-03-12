@@ -34,26 +34,22 @@ $>
 
 #include <unistd.h>
 
-void rostring(char *str)
+void	rostring(char *str)
 {
-	int start = 0;
-    int end = 0;
-    int i = 0;
+	int	start;
+	int	end;
+	int	i;
 
-	// Ignora espaços iniciais
+	start = 0;
+	end = 0;
+	i = 0;
 	while (str[start] == ' ' || str[start] == '\t')
 		start++;
-
-	// Encontra o fim da primeira palavra
 	end = start;
 	while (str[end] && str[end] != ' ' && str[end] != '\t')
 		end++;
-
-    // Ignora espaços após a primeira palavra
 	while (str[end] == ' ' || str[end] == '\t')
-    end++;
-
-	// Copia a string restante para o resultado
+		end++;
 	while (str[end])
 	{
 		if (!(str[end] == ' ' && (str[end + 1] == ' ' || str[end + 1] == '\t')))
@@ -63,11 +59,8 @@ void rostring(char *str)
 		}
 		end++;
 	}
-	// Adiciona um espaço se existia uma palavra após a primeira
 	if (i > 0)
 		write(1, " ", 1);
-
-	// Copia a primeira palavra para o fim do resultado
 	while (start < end && str[start] != ' ' && str[start] != '\t')
 	{
 		write(1, &str[start], 1);
@@ -75,7 +68,7 @@ void rostring(char *str)
 	}
 }
 
-int main(int argc, char *argv[])
+int	main(int argc, char *argv[])
 {
 	if (argc == 2)
 		rostring(argv[1]);

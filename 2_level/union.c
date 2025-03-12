@@ -1,4 +1,4 @@
-/* 
+/*
 Assignment name  : union
 Expected files   : union.c
 Allowed functions: write
@@ -30,50 +30,52 @@ $>
 
 #include <unistd.h>
 
-int has_been_seen(char *str, char c) 
+int	has_been_seen(char *str, char c)
 {
-    int i = 0;
-    while (str[i]) 
-    {
-        if (str[i] == c) 
-        {
-            return 1;
-        }
-        i++;
-    }
-    return 0;
+	int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		if (str[i] == c)
+		{
+			return (1);
+		}
+		i++;
+	}
+	return (0);
 }
 
-int main(int argc, char **argv) 
+int	main(int argc, char **argv)
 {
-    if (argc == 3) 
-    {
-        char seen[256] = {0};
-        int len = 0;
-        int i = 0;
+		char seen[256] = {0};
+	int	len;
+	int	i;
 
-        while (argv[1][i]) 
-        {
-            if (has_been_seen(seen, argv[1][i]) == 0) 
-            {
-                seen[len++] = argv[1][i];
-                write(1, &argv[1][i], 1);
-            }
-            i++;
-        }
-
-        i = 0;
-
-        while (argv[2][i]) 
-        {
-            if (has_been_seen(seen, argv[2][i]) == 0) 
-            {
-                seen[len++] = argv[2][i];
-                write(1, &argv[2][i], 1);
-            }
-            i++;
-        }
-    }
-    write(1, "\n", 1);
-    return 0;
+	if (argc == 3)
+	{
+		len = 0;
+		i = 0;
+		while (argv[1][i])
+		{
+			if (has_been_seen(seen, argv[1][i]) == 0)
+			{
+				seen[len++] = argv[1][i];
+				write(1, &argv[1][i], 1);
+			}
+			i++;
+		}
+		i = 0;
+		while (argv[2][i])
+		{
+			if (has_been_seen(seen, argv[2][i]) == 0)
+			{
+				seen[len++] = argv[2][i];
+				write(1, &argv[2][i], 1);
+			}
+			i++;
+		}
+	}
+	write(1, "\n", 1);
+	return (0);
 }

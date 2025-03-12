@@ -23,6 +23,7 @@ int	ft_atoi_base(const char *str, int str_base);
 
 #include <stdio.h>
 
+
 int	get_digit(char c)
 {
 	if (c >= '0' && c <= '9')
@@ -36,9 +37,9 @@ int	get_digit(char c)
 
 int	ft_atoi_base(const char *str, int str_base)
 {
-	int	i;
-	int	sign;
-	int	result;
+	int i;
+	int sign;
+	int result;
 
 	i = 0;
 	sign = 1;
@@ -64,7 +65,8 @@ int	ft_atoi_base(const char *str, int str_base)
 /*
 int	main(void)
 {
-	int num = ft_atoi_base("Ceci permet de decouvrir le fonctionnement de ton ft_atoi_base.", 16);
+	int num = ft_atoi_base("Ceci permet de decouvrir le fonctionnement de ton ft_atoi_base.",
+			16);
 	printf("%d\n", num);
 	return (0);
 }

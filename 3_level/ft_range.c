@@ -6,7 +6,7 @@ Allowed functions: malloc
 
 Write the following function:
 
-int     *ft_range(int start, int end);
+int	*ft_range(int start, int end);
 
 It must allocate (with malloc()) an array of integers, fill it with consecutive
 values that begin at start and end at end (Including start and end !), then
@@ -32,11 +32,9 @@ int	*ft_range(int start, int end)
 		len = start - end + 1;
 	else
 		len = end - start + 1;
-
 	arr = malloc(sizeof(int) * len);
 	if (!arr)
 		return (NULL);
-
 	i = 0;
 	if (start < end)
 	{
@@ -61,24 +59,25 @@ int	*ft_range(int start, int end)
 /*
 #include <stdio.h>
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
+	int	start;
+	int	end;
+	int	*arr;
+	int	size;
+
 	if (argc != 3)
 	{
 		printf("Usage: %s <start> <end>\n", argv[0]);
 		return (EXIT_FAILURE);
 	}
-
-	int	start = atoi(argv[1]);
-	int	end = atoi(argv[2]);
-	int	*arr = ft_range(start, end);
-	int	size;
-
+	start = atoi(argv[1]);
+	end = atoi(argv[2]);
+	arr = ft_range(start, end);
 	if (start > end)
 		size = start - end + 1;
 	else
 		size = end - start + 1;
-
 	for (int i = 0; i < size; i++)
 	{
 		printf("%d ", arr[i]);

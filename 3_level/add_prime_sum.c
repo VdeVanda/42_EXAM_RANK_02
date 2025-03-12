@@ -1,4 +1,4 @@
-/* 
+/*
 Assignment name  : add_prime_sum
 Expected files   : add_prime_sum.c
 Allowed functions: write, exit
@@ -26,20 +26,20 @@ $>
 #include <unistd.h>
 
 // Função para escrever um número na saída padrão
-void ft_putnbr(int n) 
+void	ft_putnbr(int n)
 {
-    char c;
+	char	c;
 
-    if (n >= 10)
-        ft_putnbr(n / 10);
-    c = '0' + n % 10;
-    write(1, &c, 1);
+	if (n >= 10)
+		ft_putnbr(n / 10);
+	c = '0' + n % 10;
+	write(1, &c, 1);
 }
 
 // Função para verificar se um número é primo
-int is_prime(int nb) 
+int	is_prime(int nb)
 {
-	int i;
+	int	i;
 
 	i = 2;
 	while (i < nb)
@@ -49,41 +49,42 @@ int is_prime(int nb)
 		i++;
 	}
 	return (1);
-
 }
 
 // Função para converter string para número
-int ft_atoi(char *str) 
+int	ft_atoi(char *str)
 {
-    int num = 0;
-    while (*str >= '0' && *str <= '9') 
-    {
-        num = num * 10 + (*str - '0');
-        str++;
-    }
-    return (num);
+	int	num;
+
+	num = 0;
+	while (*str >= '0' && *str <= '9')
+	{
+		num = num * 10 + (*str - '0');
+		str++;
+	}
+	return (num);
 }
 
-int main(int argc, char **argv) 
+int	main(int argc, char **argv)
 {
-    if (argc != 2) 
-    {
-        write(1, "0\n", 2);
-        return (0);
-    }
+	if (argc != 2)
+	{
+		write(1, "0\n", 2);
+		return (0);
+	}
 
-    int num = ft_atoi(argv[1]);
-    int sum = 0;
-    int i = 2;
-    while (i <= num) 
-    {
-        if (is_prime(i)) 
-        {
-            sum += i;
-        }
-        i++;
-    }
-    ft_putnbr(sum);
-    write(1, "\n", 1);
-    return (0);
+	int num = ft_atoi(argv[1]);
+	int sum = 0;
+	int i = 2;
+	while (i <= num)
+	{
+		if (is_prime(i))
+		{
+			sum += i;
+		}
+		i++;
+	}
+	ft_putnbr(sum);
+	write(1, "\n", 1);
+	return (0);
 }

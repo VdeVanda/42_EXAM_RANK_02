@@ -41,10 +41,11 @@ $>
 
 #include <unistd.h>
 
-int		ft_atoi(char *str)
+int	ft_atoi(char *str)
 {
-	int n = 0;
+	int	n;
 
+	n = 0;
 	while (*str >= '0' && *str <= '9')
 	{
 		n = n * 10;
@@ -56,18 +57,20 @@ int		ft_atoi(char *str)
 
 void	ft_putnbr(int n)
 {
+	char	c;
+
 	if (n >= 10)
 		ft_putnbr(n / 10);
-
-	char c = (n % 10) + '0';
+	c = (n % 10) + '0';
 	write(1, &c, 1);
 }
 
 void	tab_mult(char *str)
 {
-	int n;
-	int i = 1;
+	int	n;
+	int	i;
 
+	i = 1;
 	n = ft_atoi(str);
 	while (i <= 9)
 	{
@@ -81,7 +84,7 @@ void	tab_mult(char *str)
 	}
 }
 
-int		main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	if (argc == 2)
 		tab_mult(argv[1]);

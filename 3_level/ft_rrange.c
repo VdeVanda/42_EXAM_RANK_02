@@ -6,7 +6,7 @@ Allowed functions: malloc
 
 Write the following function:
 
-int     *ft_rrange(int start, int end);
+int	*ft_rrange(int start, int end);
 
 It must allocate (with malloc()) an array of integers, fill it with consecutive
 values that begin at end and end at start (Including start and end !), then
@@ -22,12 +22,12 @@ Examples:
 
 #include <stdlib.h>
 
-int     *ft_rrange(int start, int end)
+int	*ft_rrange(int start, int end)
 
 {
-	int	len;
-	int	*arr;
-	int	i;
+	int len;
+	int *arr;
+	int i;
 
 	if (start > end)
 		len = start - end + 1;
@@ -35,8 +35,8 @@ int     *ft_rrange(int start, int end)
 		len = end - start + 1;
 
 	arr = malloc(sizeof(int) * len);
-    if (!arr)
-	return (NULL);
+	if (!arr)
+		return (NULL);
 	i = 0;
 	if (start <= end)
 	{
@@ -44,41 +44,42 @@ int     *ft_rrange(int start, int end)
 		{
 			arr[i] = end;
 			end--;
-            i++;
+			i++;
 		}
-    }
+	}
 	else
-    {
-			while (end <= start)
-            {
-                arr[i] = end;
-                end++;
-                i++;
-            }
-    }
+	{
+		while (end <= start)
+		{
+			arr[i] = end;
+			end++;
+			i++;
+		}
+	}
 	return (arr);
 }
 
 #include <stdio.h>
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
+	int	start;
+	int	end;
+	int	*arr;
+	int	size;
+
 	if (argc != 3)
 	{
 		printf("Usage: %s <start> <end>\n", argv[0]);
 		return (EXIT_FAILURE);
 	}
-
-	int	start = atoi(argv[1]);
-	int	end = atoi(argv[2]);
-	int	*arr = ft_rrange(start, end);
-	int	size;
-
+	start = atoi(argv[1]);
+	end = atoi(argv[2]);
+	arr = ft_rrange(start, end);
 	if (start > end)
 		size = start - end + 1;
 	else
 		size = end - start + 1;
-
 	for (int i = 0; i < size; i++)
 	{
 		printf("%d ", arr[i]);

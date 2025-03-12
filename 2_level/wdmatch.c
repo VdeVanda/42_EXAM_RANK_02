@@ -1,4 +1,4 @@
-/* 
+/*
 Assignment name  : wdmatch
 Expected files   : wdmatch.c
 Allowed functions: write
@@ -19,7 +19,8 @@ $>./wdmatch "faya" "fgvvfdxcacpolhyghbreda" | cat -e
 faya$
 $>./wdmatch "faya" "fgvvfdxcacpolhyghbred" | cat -e
 $
-$>./wdmatch "quarante deux" "qfqfsudf arzgsayns tsregfdgs sjytdekuoixq " | cat -e
+$>./wdmatch "quarante deux" "qfqfsudf arzgsayns tsregfdgs sjytdekuoixq " | cat
+	-e
 quarante deux$
 $>./wdmatch "error" rrerrrfiiljdfxjyuifrrvcoojh | cat -e
 $
@@ -29,22 +30,22 @@ $
 
 #include <unistd.h>
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
-    if (argc == 3)
-    {
-        int i;
-        
-        i = 0;
-        while (argv[1][i] && *argv[2])
-        {
-            if (argv[1][i] == *argv[2])
-                i++;
-            argv[2]++;
-        }
-        if (argv[1][i] == '\0')
-            write(1, argv[1], i);
-    }
-    write(1, "\n", 1);
-    return (0);
+	if (argc == 3)
+	{
+		int i;
+
+		i = 0;
+		while (argv[1][i] && *argv[2])
+		{
+			if (argv[1][i] == *argv[2])
+				i++;
+			argv[2]++;
+		}
+		if (argv[1][i] == '\0')
+			write(1, argv[1], i);
+	}
+	write(1, "\n", 1);
+	return (0);
 }

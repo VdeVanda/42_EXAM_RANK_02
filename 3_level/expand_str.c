@@ -18,7 +18,8 @@ Examples:
 
 $> ./expand_str "See? It's easy to print the same thing" | cat -e
 See?   It's   easy   to   print   the   same   thing$
-$> ./expand_str " this        time it      will     be    more complex  " | cat -e
+$> ./expand_str " this        time it      will     be    more complex  " | cat
+	-e
 this   time   it   will   be   more   complex$
 $> ./expand_str "No S*** Sherlock..." "nAw S*** ShErLaWQ..." | cat -e
 $
@@ -29,9 +30,9 @@ $>
 
 #include <unistd.h>
 
-int		main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (argc == 2)

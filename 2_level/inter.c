@@ -27,7 +27,7 @@ $
 
 int	main(int argc, char **argv)
 {
-	int	i;
+	int i;
 	int j;
 	int match;
 	char *s1;
@@ -44,16 +44,16 @@ int	main(int argc, char **argv)
 			j = 0;
 			while (s2[j])
 			{
-				if(s1[i] == s2[j])
-				{ 
+				if (s1[i] == s2[j])
+				{
 					match = 0;
 					while (s1[match] != s1[i])
-                    match++;
+						match++;
 					if (match == i)
 					{
 						match = 0;
 						while (s2[match] != s2[j])
-                        match++;
+							match++;
 						if (match == j)
 							write(1, &s1[i], 1);
 					}

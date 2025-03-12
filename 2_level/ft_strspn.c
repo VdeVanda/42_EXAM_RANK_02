@@ -4,7 +4,7 @@ Expected files	: ft_strspn.c
 Allowed functions: None
 ---------------------------------------------------------------
 
-Reproduce exactly the behavior of the strspn function 
+Reproduce exactly the behavior of the strspn function
 (man strspn).
 
 The function should be prototyped as follows:
@@ -20,9 +20,9 @@ CONTÉM APENAS os caracteres especificados no conjunto de caracteres.*/
 
 size_t	ft_strspn(const char *s, const char *accept)
 {
-	int i;
+	int	i;
 	int	j;
-	int check;
+	int	check;
 
 	i = 0;
 	while (s[i])
@@ -41,7 +41,7 @@ size_t	ft_strspn(const char *s, const char *accept)
 	}
 	return (i);
 }
-/* 
+/*
 #include <string.h>  // Needed for original strcspn
 
 int	main(void)
