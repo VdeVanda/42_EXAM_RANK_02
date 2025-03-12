@@ -42,13 +42,12 @@ char	**ft_split(char *str)
 			arr[word][letter] = '\0';
 			word++;
 		}
-		else
-			i++;
+		i++;
 	}
 	arr[word] = '\0';
 	return (arr);
 }
-/* 
+/*
 int	main(void)
 {
 	char	*str;
