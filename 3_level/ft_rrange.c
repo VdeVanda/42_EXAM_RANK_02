@@ -25,18 +25,10 @@ Examples:
 int	*ft_rrange(int start, int end)
 
 {
-	int len;
 	int *arr;
 	int i;
 
-	if (start > end)
-		len = start - end + 1;
-	else
-		len = end - start + 1;
-
-	arr = malloc(sizeof(int) * len);
-	if (!arr)
-		return (NULL);
+	arr = malloc(sizeof(int) * 1000);
 	i = 0;
 	if (start <= end)
 	{
@@ -59,6 +51,7 @@ int	*ft_rrange(int start, int end)
 	return (arr);
 }
 
+/*
 #include <stdio.h>
 
 int	main(int argc, char **argv)
@@ -88,3 +81,4 @@ int	main(int argc, char **argv)
 	free(arr);
 	return (EXIT_SUCCESS);
 }
+*/

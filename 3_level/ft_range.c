@@ -24,25 +24,18 @@ Examples:
 
 int	*ft_range(int start, int end)
 {
-	int	len;
 	int	*arr;
 	int	i;
 
-	if (start > end)
-		len = start - end + 1;
-	else
-		len = end - start + 1;
-	arr = malloc(sizeof(int) * len);
-	if (!arr)
-		return (NULL);
+	arr = malloc(sizeof(int) * 10000);
 	i = 0;
 	if (start < end)
 	{
 		while (start <= end)
 		{
 			arr[i] = start;
-			start += 1;
-			i += 1;
+			start++;
+			i++;
 		}
 	}
 	else
@@ -50,8 +43,8 @@ int	*ft_range(int start, int end)
 		while (start >= end)
 		{
 			arr[i] = start;
-			start -= 1;
-			i += 1;
+			start--;
+			i++;
 		}
 	}
 	return (arr);
