@@ -13,10 +13,10 @@ size_t	ft_strcspn(const char *s, const char *reject);
 */
 
 /*
-A função strcspn em C é uma função da biblioteca padrão string.h
-que serve para encontrar o comprimento do segmento inicial de uma
-string que NÃO contém nenhum dos caracteres especificados em um
-conjunto de caracteres.
+The strcspn() function calculates the length of the initial segment  of
+s which consists entirely of bytes NOT in reject.
+The strcspn() function returns the number of bytes in the initial 
+segment of s which are NOT in the string reject.
 */
 
 #include <stdio.h> // Needed for size_t
