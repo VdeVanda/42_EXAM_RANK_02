@@ -25,18 +25,13 @@ $>
 
 #include <unistd.h>
 
-// Função para escrever um número na saída padrão
 void	ft_putnbr(int n)
 {
-	char	c;
-
 	if (n >= 10)
 		ft_putnbr(n / 10);
-	c = '0' + n % 10;
-	write(1, &c, 1);
+	write(1, &"0123456789"[n % 10], 1);
 }
 
-// Função para verificar se um número é primo
 int	is_prime(int nb)
 {
 	int	i;
@@ -51,7 +46,6 @@ int	is_prime(int nb)
 	return (1);
 }
 
-// Função para converter string para número
 int	ft_atoi(char *str)
 {
 	int	num;
