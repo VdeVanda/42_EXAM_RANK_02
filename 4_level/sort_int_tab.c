@@ -24,28 +24,28 @@ void	sort_int_tab(int *tab, unsigned int size)
 	int				tmp;
 
 	i = 0;
-	while (i < (size - 1))
+	while (i < size)
 	{
 		if (tab[i] > tab[i + 1])
 		{
 			tmp = tab[i];
 			tab[i] = tab[i + 1];
 			tab[i + 1] = tmp;
-			i = 0;
+			i = -1;
 		}
 		i++;
 	}
 }
 
-// int	main(void)
-// {
-// 	int	i;
-// 	int	size = 6;
-// 	int	tab[] = {3, 3, 1, 4, 0, 2};
+int	main(void)
+{
+	int	i;
+	int	size = 6;
+	int	tab[] = {3, 3, 1, 4, 0, 2};
 
-// 	i = 0;
-// 	sort_int_tab(tab, size);
-// 	while (i < size)
-// 		printf("%d ", tab[i++]);
-// 	return (0);
-// }
+	i = 0;
+	sort_int_tab(tab, size);
+	while (i < size)
+		printf("%d ", tab[i++]);
+	return (0);
+}
